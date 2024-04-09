@@ -1,8 +1,5 @@
 # ip 需要的网站
-
 payload: 
-  # e-hentai 会检测 和用？ 用量？ 从而 ban ip
   - DOMAIN-SUFFIX,e-hentai.org 
   - DOMAIN-SUFFIX,exhentai.org 
-  # deepl 的翻译根据ip限额
   - DOMAIN-SUFFIX,deepl.com 
