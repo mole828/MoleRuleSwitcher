@@ -1,5 +1,14 @@
-# ip 需要的网站
-
+# NAME: ip_need
+# AUTHOR: mole828
+# REPO: https://github.com/mole828/MoleRuleSwitcher
+# UPDATED: 2024-04-10 01:11:03
+# DOMAIN: 0
+# DOMAIN-KEYWORD: 0
+# DOMAIN-SUFFIX: 3
+# IP-CIDR: 0
+# IP-CIDR6: 0
+# PROCESS-NAME: 0
+# TOTAL: 3
 payload: 
   # e-hentai 会检测 和用？ 用量？ 从而 ban ip
   - DOMAIN-SUFFIX,e-hentai.org 
