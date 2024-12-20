@@ -5,3 +5,6 @@ DOMAIN-SUFFIX,exhentai.org
 DOMAIN-SUFFIX,deepl.com 
 # z library 下载根据ip限额
 DOMAIN-SUFFIX,z-lib.gs
+
+# 尝试使用好的ip减少 cloud flare 验证
+DOMAIN-SUFFIX,perplexity.ai
