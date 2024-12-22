@@ -1,6 +1,8 @@
 # e-hentai 会检测 和用？ 用量？ 从而 ban ip
-DOMAIN-SUFFIX,e-hentai.org 
-DOMAIN-SUFFIX,exhentai.org 
+# 2024-12 使用高级账户, 取消特定ip转发
+# DOMAIN-SUFFIX,e-hentai.org 
+# DOMAIN-SUFFIX,exhentai.org 
+
 # deepl 的翻译根据ip限额
 DOMAIN-SUFFIX,deepl.com 
 # z library 下载根据ip限额
