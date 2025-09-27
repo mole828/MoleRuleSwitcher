@@ -11,7 +11,7 @@ Clash 部分直接拿来了 subconverter 的 GeneralClashConfig.yml 稍作修改
 
 鉴于规则会使用先匹配到的，所以要注意先后次序 
 
-这里主要使用了 blackmatrix7/ios_rule_script 中的规则
+这里主要使用了 [blackmatrix7/ios_rule_script](https://github.com/blackmatrix7/ios_rule_script) 中的规则
 
 ## 使用
 
