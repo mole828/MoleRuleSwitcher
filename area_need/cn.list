@@ -1,3 +1,7 @@
 # closeai 国内 ai api 服务
 DOMAIN-SUFFIX,closechat.org
 DOMAIN-SUFFIX,closeai-asia.com
+# MAA 相关站点直连
+DOMAIN-SUFFIX,maa.plus
+DOMAIN-SUFFIX,prts.plus
+DOMAIN-SUFFIX,zoot.plus
