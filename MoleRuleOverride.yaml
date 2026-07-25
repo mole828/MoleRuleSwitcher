@@ -191,6 +191,17 @@ proxy-groups:
       - 默认自建
       - 香港节点
       - 美国节点
+  - name: Gofile & MEGA
+    icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Download.png
+    type: select
+    proxies:
+      - 美国节点
+      - 香港节点
+      - 日本节点
+      - 默认自建
+      - 自动选择
+      - 手动选择
+      - 国外流量
   - name: X
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Twitter.png
     type: select
@@ -268,6 +279,7 @@ proxy-groups:
       - 美国自建
       - 默认自建
       - EH
+      - Gofile & MEGA
       - X
       - Apple
       - Jetbrains
@@ -458,6 +470,8 @@ rules:
   - "RULE-SET,MoleJPNeed,日本节点"
   - "RULE-SET,MoleIPNeed,默认自建"
   - "RULE-SET,MoleEH,EH"
+  - "DOMAIN-SUFFIX,gofile.io,Gofile & MEGA"
+  - "DOMAIN-SUFFIX,mega.nz,Gofile & MEGA"
   - "RULE-SET,Twitter,X"
   - "RULE-SET,Apple,Apple"
   - "RULE-SET,AppleTV,Apple"
