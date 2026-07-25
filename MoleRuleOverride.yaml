@@ -311,6 +311,13 @@ rule-providers:
     interval: 86400
     format: text
     type: http
+  MEGA:
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/MEGA/MEGA.yaml
+    path: ./ruleset/MEGA.yaml
+    behavior: classical
+    interval: 86400
+    format: yaml
+    type: http
   MoleIPNeed:
     url: https://raw.githubusercontent.com/mole828/MoleRuleSwitcher/main/ip_need.list
     path: ./ruleset/MoleIPNeed.list
@@ -470,8 +477,8 @@ rules:
   - "RULE-SET,MoleJPNeed,日本节点"
   - "RULE-SET,MoleIPNeed,默认自建"
   - "RULE-SET,MoleEH,EH"
+  - "RULE-SET,MEGA,Gofile & MEGA"
   - "DOMAIN-SUFFIX,gofile.io,Gofile & MEGA"
-  - "DOMAIN-SUFFIX,mega.nz,Gofile & MEGA"
   - "RULE-SET,Twitter,X"
   - "RULE-SET,Apple,Apple"
   - "RULE-SET,AppleTV,Apple"
