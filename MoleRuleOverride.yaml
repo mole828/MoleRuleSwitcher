@@ -18,6 +18,19 @@ dns:
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
   use-hosts: true
+  # 局域网域名不分配 fake-ip，保留路由器/公司 DNS 返回的真实地址
+  fake-ip-filter:
+    - "*.lan"
+    - "*.home.arpa"
+    - "*.local"
+  # 不固定局域网 DNS 地址，跟随当前操作系统从网络环境获得的 DNS
+  nameserver-policy:
+    "+.lan":
+      - system://
+    "+.home.arpa":
+      - system://
+    "+.local":
+      - system://
   nameserver:
     - https://doh.pub/dns-query
     - https://dns.alidns.com/dns-query
@@ -31,6 +44,10 @@ dns:
     ipcidr:
       - 240.0.0.0/4
       - 0.0.0.0/32
+  # 代理节点域名单独使用公共 DNS，避免受局域网 DNS 影响
+  proxy-server-nameserver:
+    - https://doh.pub/dns-query
+    - https://dns.alidns.com/dns-query
 
 cfw-latency-timeout: 3000
 cfw-latency-url: http://www.gstatic.com/generate_204
@@ -488,6 +505,10 @@ rule-providers:
     type: http
 
 rules:
+  # 常见局域网域名优先直连；不依赖具体的 10/172/192.168 网段
+  - "DOMAIN-SUFFIX,lan,DIRECT"
+  - "DOMAIN-SUFFIX,home.arpa,DIRECT"
+  - "DOMAIN-SUFFIX,local,DIRECT"
   - "RULE-SET,MoleJPNeed,日本节点"
   - "RULE-SET,MoleIPNeed,默认自建"
   - "RULE-SET,MoleEH,EH"
