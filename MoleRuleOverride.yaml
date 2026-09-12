@@ -227,6 +227,15 @@ proxy-groups:
       - 香港自建
       - 手动选择
       - 国外流量
+  - name: Meta Quest
+    type: select
+    proxies:
+      - 日本节点
+      - 美国节点
+      - 香港节点
+      - 手动选择
+      - 默认自建
+      - 国外流量
   - name: Apple
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Apple.png
     type: select
@@ -298,6 +307,7 @@ proxy-groups:
       - EH
       - Gofile & MEGA
       - X
+      - Meta Quest
       - Apple
       - Jetbrains
       - Google
@@ -307,6 +317,20 @@ proxy-groups:
       - 漏网之鱼
 
 rule-providers:
+  OculusDomain:
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/oculus.yaml
+    path: ./ruleset/OculusDomain.yaml
+    behavior: domain
+    interval: 86400
+    format: yaml
+    type: http
+  FacebookDomain:
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/facebook.yaml
+    path: ./ruleset/FacebookDomain.yaml
+    behavior: domain
+    interval: 86400
+    format: yaml
+    type: http
   MoleJPNeed:
     url: https://raw.githubusercontent.com/mole828/MoleRuleSwitcher/main/area_need/jp_need.list
     path: ./ruleset/MoleJPNeed.list
@@ -509,6 +533,10 @@ rules:
   - "DOMAIN-SUFFIX,lan,DIRECT"
   - "DOMAIN-SUFFIX,home.arpa,DIRECT"
   - "DOMAIN-SUFFIX,local,DIRECT"
+  # Quest / Meta 登录及共享 CDN 优先于通用代理和游戏规则。
+  - "RULE-SET,OculusDomain,Meta Quest"
+  - "RULE-SET,FacebookDomain,Meta Quest"
+  - "DOMAIN-SUFFIX,meta.com,Meta Quest"
   - "RULE-SET,MoleJPNeed,日本节点"
   - "RULE-SET,MoleIPNeed,默认自建"
   - "RULE-SET,MoleEH,EH"
