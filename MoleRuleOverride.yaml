@@ -242,6 +242,17 @@ proxy-groups:
     proxies:
       - 国外流量
       - 国内流量
+  - name: 开发依赖
+    type: select
+    proxies:
+      - DIRECT
+      - 日本节点
+      - 香港节点
+      - 美国节点
+      - 默认自建
+      - 自动选择
+      - 手动选择
+      - 国外流量
   - name: Jetbrains
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Jetbrains.png
     type: select
@@ -309,6 +320,7 @@ proxy-groups:
       - X
       - Meta Quest
       - Apple
+      - 开发依赖
       - Jetbrains
       - Google
       - OpenAI
@@ -533,6 +545,9 @@ rules:
   - "DOMAIN-SUFFIX,lan,DIRECT"
   - "DOMAIN-SUFFIX,home.arpa,DIRECT"
   - "DOMAIN-SUFFIX,local,DIRECT"
+  # Maven Central 可在开发依赖组中手动切换出口。
+  - "DOMAIN,repo.maven.apache.org,开发依赖"
+  - "DOMAIN,repo1.maven.org,开发依赖"
   # Quest / Meta 登录及共享 CDN 优先于通用代理和游戏规则。
   - "RULE-SET,OculusDomain,Meta Quest"
   - "RULE-SET,FacebookDomain,Meta Quest"
