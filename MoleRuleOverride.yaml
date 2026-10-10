@@ -202,7 +202,6 @@ proxy-groups:
     filter: (?i)自建
     type: select
   - name: EH
-    icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Pornhub.png
     type: select
     proxies:
       - 默认自建
