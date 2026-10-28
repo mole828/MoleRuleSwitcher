@@ -128,6 +128,7 @@ proxy-groups:
     proxies:
       - 自动选择
       - 手动选择
+      - 经济节点
       - 国外流量
       - 国内流量
       - 日本节点
@@ -147,12 +148,21 @@ proxy-groups:
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
+  - name: 经济节点
+    icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Download.png
+    include-all: true
+    filter: '\[cheap_node\]$'
+    type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
   - name: 国外流量
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Global.png
     type: select
     proxies:
       - 自动选择
       - 手动选择
+      - 经济节点
       - 日本节点
       - 香港节点
       - 美国节点
@@ -306,6 +316,7 @@ proxy-groups:
       - 节点选择
       - 自动选择
       - 手动选择
+      - 经济节点
       - 国外流量
       - 国内流量
       - 日本节点
