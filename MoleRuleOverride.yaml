@@ -308,8 +308,8 @@ proxy-groups:
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Bot.png
     type: select
     proxies:
-      - 美国节点
       - 高分美国节点
+      - 美国节点
       - 新加坡节点
       - 日本节点
   - name: OpenAI
