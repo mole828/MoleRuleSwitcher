@@ -16,8 +16,13 @@
 
 - `MoleRuleOverride.yaml`: 新版 `sub-store / Mihomo Party` 风格覆写配置，结构参考 `override-hub`，并已合并基础 Clash 配置
 - `GeneralClashConfig.yml`: 历史基础配置来源，关键设置已迁入 `MoleRuleOverride.yaml`
+- `scripts/sub-store-ip-trust.js`: 探测美国节点 IPv4 出口，评分严格大于 70 时添加 `[high_score_node]`，保留全部节点；出口缓存 24 小时，评分缓存 48 小时。
 
 ## 使用
+
+`高分美国节点` 由 YAML 按 `[high_score_node]` 匹配，不需要额外的分组脚本。评分脚本放在组合订阅的重命名操作之后，使用 `/opt/app/data/sub-store-ip-trust.js#minScore=70&probeHours=24&scoreHours=48`。服务器的 `MoleSub` 读取 `/opt/app/data/MoleRuleOverride.yaml`，修改 YAML 后需同步上传。IPv6 出口尚未评估；未达标或探测失败的节点仅不打标签，不会删除。
+
+调试通过 `POST /api/preview/collection` 临时追加脚本操作，直接验证真实节点结果，并确认已保存配置未变化。预览不保存订阅配置，但脚本的缓存写入和网络请求仍会实际发生。
 
 `Claude` 使用独立策略组，可选择 `美国节点`、`新加坡节点`、`日本节点`，默认选择 `美国节点`。规则使用 blackmatrix7 的 Claude 规则集，并补充 `claude.com`，优先于通用代理规则。`新加坡节点` 自动匹配名称含 `新加坡`、`狮城`、`獅城`、`SG` 或 `Singapore` 的非自建节点，并通过测速选择节点。刷新覆写并重新加载配置后，可在 `Claude` 组中切换地区；此设置只改变网络出口，不修改系统时区。
 

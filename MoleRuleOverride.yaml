@@ -135,6 +135,7 @@ proxy-groups:
       - 新加坡节点
       - 香港节点
       - 美国节点
+      - 高分美国节点
       - 默认自建
       - DIRECT
   - name: 手动选择
@@ -168,6 +169,7 @@ proxy-groups:
       - 新加坡节点
       - 香港节点
       - 美国节点
+      - 高分美国节点
       - DIRECT
   - name: 国内流量
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/DomesticMedia.png
@@ -206,6 +208,14 @@ proxy-groups:
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
+  - name: 高分美国节点
+    icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/United_States.png
+    include-all: true
+    filter: '(?i)(美国|美國|🇺🇸|\bUS(?:A)?\b|United States).*\[high_score_node\]'
+    type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
   - name: 香港自建
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png
     include-all: true
@@ -227,11 +237,13 @@ proxy-groups:
       - 默认自建
       - 香港节点
       - 美国节点
+      - 高分美国节点
   - name: Gofile & MEGA
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Download.png
     type: select
     proxies:
       - 美国节点
+      - 高分美国节点
       - 香港节点
       - 日本节点
       - 默认自建
@@ -251,6 +263,7 @@ proxy-groups:
     proxies:
       - 日本节点
       - 美国节点
+      - 高分美国节点
       - 香港节点
       - 手动选择
       - 默认自建
@@ -268,6 +281,7 @@ proxy-groups:
       - 日本节点
       - 香港节点
       - 美国节点
+      - 高分美国节点
       - 默认自建
       - 自动选择
       - 手动选择
@@ -277,6 +291,7 @@ proxy-groups:
     type: select
     proxies:
       - 美国节点
+      - 高分美国节点
       - 国内流量
       - 日本节点
       - 国外流量
@@ -285,6 +300,7 @@ proxy-groups:
     type: select
     proxies:
       - 美国节点
+      - 高分美国节点
       - 日本节点
       - 香港节点
       - 自动选择
@@ -293,6 +309,7 @@ proxy-groups:
     type: select
     proxies:
       - 美国节点
+      - 高分美国节点
       - 新加坡节点
       - 日本节点
   - name: OpenAI
@@ -300,6 +317,7 @@ proxy-groups:
     type: select
     proxies:
       - 美国节点
+      - 高分美国节点
       - 美国自建
       - 日本节点
       - 国内流量
@@ -308,6 +326,7 @@ proxy-groups:
     type: select
     proxies:
       - 美国节点
+      - 高分美国节点
       - 香港节点
       - 日本节点
       - 国内流量
@@ -340,6 +359,7 @@ proxy-groups:
       - 新加坡节点
       - 香港节点
       - 美国节点
+      - 高分美国节点
       - 香港自建
       - 美国自建
       - 默认自建
