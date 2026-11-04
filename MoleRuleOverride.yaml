@@ -601,6 +601,8 @@ rules:
   - "DOMAIN-SUFFIX,lan,DIRECT"
   - "DOMAIN-SUFFIX,home.arpa,DIRECT"
   - "DOMAIN-SUFFIX,local,DIRECT"
+  # 自有域名所有端口优先直连，包括 SSH。
+  - "DOMAIN-SUFFIX,molec.cc,DIRECT"
   # Maven Central 可在开发依赖组中手动切换出口。
   - "DOMAIN,repo.maven.apache.org,开发依赖"
   - "DOMAIN,repo1.maven.org,开发依赖"
