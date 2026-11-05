@@ -20,9 +20,11 @@
 
 ## 使用
 
+来源订阅可添加 `premium_node`（贵重流量）或 `cheap_node`（经济流量）标签。`scripts/sub-store-rename.js` 将其写入节点名称，多个标签使用独立方括号，`[cheap_node]` 保持末尾。普通组排除 `[premium_node]`，高分美国组仍按评分标签筛选；赛博云使用 `premium_node`。
+
 `高分美国节点` 由 YAML 按 `[high_score_node]` 匹配，不需要额外的分组脚本。评分脚本放在组合订阅的重命名操作之后，以链接模式使用 `https://raw.githubusercontent.com/mole828/MoleRuleSwitcher/main/scripts/sub-store-ip-trust.js#minScore=70&probeHours=24&scoreHours=48`，由服务器上的 sub-store 执行并访问本机 HTTP META。脚本修改并推送后，更新时需留意 sub-store 的远程脚本缓存。IPv6 出口尚未评估；未达标或探测失败的节点仅不打标签，不会删除。
 
-服务器的 `MoleSub` 在文件脚本操作中以链接模式读取 [GitHub 上的 MoleRuleOverride.yaml](https://raw.githubusercontent.com/mole828/MoleRuleSwitcher/main/MoleRuleOverride.yaml)。修改 YAML 并推送后，需让 sub-store 获取最新远程覆写并重新生成订阅，再由客户端更新加载；若仍返回旧规则，需检查 sub-store 的远程脚本缓存。
+服务器组合订阅的流量标签脚本读取 `/opt/app/data/sub-store-rename.js`，`MoleSub` 的覆写读取 `/opt/app/data/MoleRuleOverride.yaml`。修改对应仓库文件后需同步服务器文件，再由客户端更新订阅；仅推送 GitHub 不会更新这两个本地文件。
 
 调试通过 `POST /api/preview/collection` 临时追加脚本操作，直接验证真实节点结果，并确认已保存配置未变化。预览不保存订阅配置，但脚本的缓存写入和网络请求仍会实际发生。
 

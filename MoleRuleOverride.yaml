@@ -141,11 +141,12 @@ proxy-groups:
   - name: 手动选择
     icon: https://testingcf.jsdelivr.net/gh/shindgewongxj/WHATSINStash@master/icon/select.png
     include-all: true
+    exclude-filter: '\[premium_node\]'
     type: select
   - name: 自动选择
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Auto.png
     include-all: true
-    exclude-filter: (?i)电信|联通|移动|自建|朝鲜
+    exclude-filter: '(?i)电信|联通|移动|自建|朝鲜|\[premium_node\]'
     type: url-test
     url: http://www.gstatic.com/generate_204
     interval: 300
@@ -153,6 +154,7 @@ proxy-groups:
   - name: 经济节点
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Download.png
     include-all: true
+    exclude-filter: '\[premium_node\]'
     filter: '\[cheap_node\]$'
     type: url-test
     url: http://www.gstatic.com/generate_204
@@ -179,6 +181,7 @@ proxy-groups:
   - name: 日本节点
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Japan.png
     include-all: true
+    exclude-filter: '\[premium_node\]'
     filter: (?i)(?=.*(日本|东京|大阪|泉日|埼玉|川日|沪日|深日|JP|Japan))(?!.*自建).*
     type: url-test
     url: http://www.gstatic.com/generate_204
@@ -187,6 +190,7 @@ proxy-groups:
   - name: 新加坡节点
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Singapore.png
     include-all: true
+    exclude-filter: '\[premium_node\]'
     filter: (?i)(?=.*(新加坡|狮城|獅城|SG|Singapore))(?!.*自建).*
     type: url-test
     url: http://www.gstatic.com/generate_204
@@ -195,6 +199,7 @@ proxy-groups:
   - name: 香港节点
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png
     include-all: true
+    exclude-filter: '\[premium_node\]'
     filter: (?i)(?=.*(港|香港|HK|Hong Kong|HongKong|hongkong))(?!.*自建).*
     type: url-test
     url: https://www.moles.top/generate_204
@@ -203,6 +208,7 @@ proxy-groups:
   - name: 美国节点
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/United_States.png
     include-all: true
+    exclude-filter: '\[premium_node\]'
     filter: (?i)(?=.*(美国|美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States))(?!.*自建).*
     type: url-test
     url: http://www.gstatic.com/generate_204
@@ -219,16 +225,19 @@ proxy-groups:
   - name: 香港自建
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png
     include-all: true
+    exclude-filter: '\[premium_node\]'
     filter: (?i)(?=.*(港|香港|HK|Hong Kong|HongKong|hongkong))(?=.*自建).*
     type: select
   - name: 美国自建
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/United_States.png
     include-all: true
+    exclude-filter: '\[premium_node\]'
     filter: (?i)(?=.*(美国|美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States))(?=.*自建).*
     type: select
   - name: 默认自建
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Airport.png
     include-all: true
+    exclude-filter: '\[premium_node\]'
     filter: (?i)自建
     type: select
   - name: EH
@@ -347,6 +356,7 @@ proxy-groups:
   - name: GLOBAL
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Global.png
     include-all: true
+    exclude-filter: '\[premium_node\]'
     type: select
     proxies:
       - 节点选择
