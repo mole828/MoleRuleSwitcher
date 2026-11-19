@@ -4,11 +4,11 @@
 
 ## 规则来源
 
-规则主要基于 [blackmatrix7/ios_rule_script](https://github.com/blackmatrix7/ios_rule_script)，并补充了仓库内的自定义列表。`X / xAI` 使用 [MetaCubeX/meta-rules-dat](https://github.com/MetaCubeX/meta-rules-dat) 分开维护的域名和 IP 规则。
+规则主要基于 [blackmatrix7/ios_rule_script](https://github.com/blackmatrix7/ios_rule_script)，并补充了仓库内的自定义列表。`X`、`xAI / Grok` 与 `Cursor` 使用 [MetaCubeX/meta-rules-dat](https://github.com/MetaCubeX/meta-rules-dat) 分开维护的域名规则；X 另有单独的 IP 规则。
 
 由于规则遵循“先匹配先命中”，所以顺序非常重要。
 
-`X / Twitter` 与 `xAI / Grok` 的域名会优先命中独立的 `X` 策略组，默认走香港节点。X 的 IP 规则单独放在域名规则之后，并使用 `no-resolve`，避免仅有域名的连接被 IP 规则提前触发 DNS 后误判。
+`xAI / Grok` 的域名规则排在 `X / Twitter` 之前。`twitter.yaml` 含 `+.x.com`，放在前面会先命中 `grok.x.com`。三者各用一个策略组：`Grok` 默认 `高分美国节点`，`Cursor` 默认 `DIRECT`，`X` 默认香港节点。X 的 IP 规则单独放在域名规则之后，并使用 `no-resolve`，避免仅有域名的连接被 IP 规则提前触发 DNS 后误判。
 
 规则集保留为可读的 YAML，没有使用 Mihomo 专用的二进制 MRS 格式。整份覆写配置仍然只面向 Mihomo；Shadowrocket 需要使用其自身支持的文本规则配置，不能直接加载该 YAML 覆写。
 
@@ -29,6 +29,10 @@
 调试通过 `POST /api/preview/collection` 临时追加脚本操作，直接验证真实节点结果，并确认已保存配置未变化。预览不保存订阅配置，但脚本的缓存写入和网络请求仍会实际发生。
 
 `Claude` 使用独立策略组，默认选择 `高分美国节点`，也可手动选择 `美国节点`、`新加坡节点`、`日本节点`。规则使用 blackmatrix7 的 Claude 规则集，并补充 `claude.com`，优先于通用代理规则。`新加坡节点` 自动匹配名称含 `新加坡`、`狮城`、`獅城`、`SG` 或 `Singapore` 的非自建节点，并通过测速选择节点。刷新覆写并重新加载配置后，可在 `Claude` 组中切换地区；客户端若保留旧选择，需手动切换一次。此设置只改变网络出口，不修改系统时区，也不保证账号安全。
+
+`Grok` 使用独立策略组，默认选择 `高分美国节点`，也可手动选择 `美国节点`、`日本节点`、`新加坡节点`、`香港节点` 或 `国外流量`。规则使用 MetaCubeX 的 `xai` 域名 YAML，覆盖 `grok.com`、`x.ai`、`grok.x.com` 等，并排在 X 的域名规则之前。此组用于 Grok 网页、App 和官方 API。这些域名在大陆不可达，默认不走直连。`api.x.ai` 会拒绝一部分云厂商地址，香港机房节点容易返回 403，所以默认使用高分美国节点。刷新覆写并重新加载配置后，这些域名进入新建的 `Grok` 组，并使用列表中的第一项。此设置只改变网络出口。
+
+`Cursor` 使用独立策略组，默认选择 `DIRECT`，也可手动切换香港、日本、美国或高分美国节点。规则使用 MetaCubeX 的 `cursor` 域名 YAML，覆盖 `cursor.com`、`cursor.sh`、`cursorapi.com`、`cursor-cdn.com`、`cursorvm.com`。Cursor 内的 Grok 与 Composer 请求打到 Cursor 自己的服务器，不经过 `api.x.ai`。大陆网络多数时候可以直连；线路被限速时再切换节点。代理出口有时会触发 Cursor 的 suspicious activity 拦截，所以默认保持直连。刷新覆写并重新加载配置后，可在连接面板检查是否命中 `Cursor`。此设置只改变网络出口。
 
 `开发依赖` 策略组目前覆盖 Maven Central 的 `repo.maven.apache.org` 和 `repo1.maven.org`，默认选择 `DIRECT`，可手动切换地区节点、自建节点或其他代理策略，规则优先于通用代理规则。国内镜像沿用现有分流规则。此配置只控制访问出口，不会把 Central 请求改写为国内镜像；使用镜像仍需在 Maven 的 `settings.xml` 中配置。刷新覆写并重新加载配置后，可在连接面板检查 Maven 下载是否命中 `开发依赖`；切换策略后重新发起下载。
 
