@@ -341,11 +341,11 @@ proxy-groups:
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Bot.png
     type: select
     proxies:
+      - 美国自建
       - 高分美国节点
       - 美国节点
       - 新加坡节点
       - 日本节点
-      - 美国自建
   - name: OpenAI
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Bot.png
     type: select
@@ -376,6 +376,7 @@ proxy-groups:
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Final.png
     type: select
     proxies:
+      - 美国自建
       - 国外流量
       - 国内流量
       - 手动选择
