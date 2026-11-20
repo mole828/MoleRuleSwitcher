@@ -164,6 +164,7 @@ proxy-groups:
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Global.png
     type: select
     proxies:
+      - 美国自建
       - 自动选择
       - 手动选择
       - 经济节点
@@ -271,6 +272,7 @@ proxy-groups:
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Bot.png
     type: select
     proxies:
+      - 美国自建
       - 高分美国节点
       - 美国节点
       - 日本节点
@@ -319,6 +321,7 @@ proxy-groups:
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Jetbrains.png
     type: select
     proxies:
+      - 美国自建
       - 美国节点
       - 高分美国节点
       - 国内流量
@@ -328,6 +331,7 @@ proxy-groups:
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Google_Search.png
     type: select
     proxies:
+      - 美国自建
       - 美国节点
       - 高分美国节点
       - 日本节点
@@ -337,6 +341,7 @@ proxy-groups:
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Bot.png
     type: select
     proxies:
+      - 美国自建
       - 高分美国节点
       - 美国节点
       - 新加坡节点
@@ -345,15 +350,16 @@ proxy-groups:
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Bot.png
     type: select
     proxies:
+      - 美国自建
       - 美国节点
       - 高分美国节点
-      - 美国自建
       - 日本节点
       - 国内流量
   - name: Microsoft
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Microsoft.png
     type: select
     proxies:
+      - 美国自建
       - 美国节点
       - 高分美国节点
       - 香港节点
