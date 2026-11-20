@@ -337,10 +337,8 @@ proxy-groups:
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Bot.png
     type: select
     proxies:
-      - 高分美国节点
-      - 美国节点
-      - 新加坡节点
-      - 日本节点
+      - REJECT
+      - 美国自建
   - name: OpenAI
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Bot.png
     type: select
@@ -645,7 +643,7 @@ rules:
   # Maven Central 可在开发依赖组中手动切换出口。
   - "DOMAIN,repo.maven.apache.org,开发依赖"
   - "DOMAIN,repo1.maven.org,开发依赖"
-  # Claude 独立选择地区，优先于通用代理规则。
+  # Claude 默认拒绝。确认出口后再手动选择美国自建。
   - "RULE-SET,Claude,Claude"
   - "DOMAIN-SUFFIX,claude.com,Claude"
   # Quest / Meta 登录及共享 CDN 优先于通用代理和游戏规则。

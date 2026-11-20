@@ -24,11 +24,11 @@
 
 `高分美国节点` 由 YAML 按 `[high_score_node]` 匹配，不需要额外的分组脚本。评分脚本放在组合订阅的重命名操作之后，以链接模式使用 `https://raw.githubusercontent.com/mole828/MoleRuleSwitcher/main/scripts/sub-store-ip-trust.js#minScore=70&probeHours=24&scoreHours=48`，由服务器上的 sub-store 执行并访问本机 HTTP META。脚本修改并推送后，更新时需留意 sub-store 的远程脚本缓存。IPv6 出口尚未评估；未达标或探测失败的节点仅不打标签，不会删除。
 
-服务器组合订阅的流量标签脚本读取 `/opt/app/data/sub-store-rename.js`，`MoleSub` 的覆写读取 `/opt/app/data/MoleRuleOverride.yaml`。修改对应仓库文件后需同步服务器文件，再由客户端更新订阅；仅推送 GitHub 不会更新这两个本地文件。
+服务器组合订阅的重命名脚本、`MoleSub` 的覆写都以链接模式读取 GitHub 上的 `scripts/sub-store-rename.js` 和 `MoleRuleOverride.yaml`。修改并推送后，需让 sub-store 重新获取远程脚本并重新生成订阅，再由客户端更新加载。若仍返回旧规则，需检查 sub-store 的远程脚本缓存。
 
 调试通过 `POST /api/preview/collection` 临时追加脚本操作，直接验证真实节点结果，并确认已保存配置未变化。预览不保存订阅配置，但脚本的缓存写入和网络请求仍会实际发生。
 
-`Claude` 使用独立策略组，默认选择 `高分美国节点`，也可手动选择 `美国节点`、`新加坡节点`、`日本节点`。规则使用 blackmatrix7 的 Claude 规则集，并补充 `claude.com`，优先于通用代理规则。`新加坡节点` 自动匹配名称含 `新加坡`、`狮城`、`獅城`、`SG` 或 `Singapore` 的非自建节点，并通过测速选择节点。刷新覆写并重新加载配置后，可在 `Claude` 组中切换地区；客户端若保留旧选择，需手动切换一次。此设置只改变网络出口，不修改系统时区，也不保证账号安全。
+`Claude` 使用独立策略组，默认 `REJECT`，可手动切换到 `美国自建`。规则使用 blackmatrix7 的 Claude 规则集，并补充 `claude.com`，优先于通用代理规则。命中的域名在手动改选前直接拒绝，避免订阅节点或香港出口被当成 Claude 出口。客户端若仍保存旧的 `高分美国节点` 选择，该名称已不在组内，重新加载后会回到列表第一项 `REJECT`。此设置只改变网络出口，不修改系统时区，也不保证账号安全。Claude 网页还会请求规则集之外的域名，那些连接不会进入这个组。
 
 `Grok` 使用独立策略组，默认选择 `高分美国节点`，也可手动选择 `美国节点`、`日本节点`、`新加坡节点`、`香港节点` 或 `国外流量`。规则使用 MetaCubeX 的 `xai` 域名 YAML，覆盖 `grok.com`、`x.ai`、`grok.x.com` 等，并排在 X 的域名规则之前。此组用于 Grok 网页、App 和官方 API。这些域名在大陆不可达，默认不走直连。`api.x.ai` 会拒绝一部分云厂商地址，香港机房节点容易返回 403，所以默认使用高分美国节点。刷新覆写并重新加载配置后，这些域名进入新建的 `Grok` 组，并使用列表中的第一项。此设置只改变网络出口。
 
