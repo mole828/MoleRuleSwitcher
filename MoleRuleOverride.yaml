@@ -164,7 +164,6 @@ proxy-groups:
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Global.png
     type: select
     proxies:
-      - 美国自建
       - 自动选择
       - 手动选择
       - 经济节点
@@ -173,6 +172,7 @@ proxy-groups:
       - 香港节点
       - 美国节点
       - 高分美国节点
+      - 美国自建
       - DIRECT
   - name: 国内流量
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/DomesticMedia.png
@@ -272,13 +272,13 @@ proxy-groups:
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Bot.png
     type: select
     proxies:
-      - 美国自建
       - 高分美国节点
       - 美国节点
       - 日本节点
       - 新加坡节点
       - 香港节点
       - 国外流量
+      - 美国自建
   - name: Cursor
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Bot.png
     type: select
@@ -321,50 +321,50 @@ proxy-groups:
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Jetbrains.png
     type: select
     proxies:
-      - 美国自建
       - 美国节点
       - 高分美国节点
       - 国内流量
       - 日本节点
       - 国外流量
+      - 美国自建
   - name: Google
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Google_Search.png
     type: select
     proxies:
-      - 美国自建
       - 美国节点
       - 高分美国节点
       - 日本节点
       - 香港节点
       - 自动选择
+      - 美国自建
   - name: Claude
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Bot.png
     type: select
     proxies:
-      - 美国自建
       - 高分美国节点
       - 美国节点
       - 新加坡节点
       - 日本节点
+      - 美国自建
   - name: OpenAI
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Bot.png
     type: select
     proxies:
-      - 美国自建
       - 美国节点
       - 高分美国节点
+      - 美国自建
       - 日本节点
       - 国内流量
   - name: Microsoft
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Microsoft.png
     type: select
     proxies:
-      - 美国自建
       - 美国节点
       - 高分美国节点
       - 香港节点
       - 日本节点
       - 国内流量
+      - 美国自建
   - name: 游戏平台
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Game.png
     type: select
