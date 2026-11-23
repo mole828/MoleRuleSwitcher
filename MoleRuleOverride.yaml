@@ -172,6 +172,7 @@ proxy-groups:
       - 香港节点
       - 美国节点
       - 高分美国节点
+      - 美国自建
       - DIRECT
   - name: 国内流量
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/DomesticMedia.png
@@ -277,6 +278,7 @@ proxy-groups:
       - 新加坡节点
       - 香港节点
       - 国外流量
+      - 美国自建
   - name: Cursor
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Bot.png
     type: select
@@ -324,6 +326,7 @@ proxy-groups:
       - 国内流量
       - 日本节点
       - 国外流量
+      - 美国自建
   - name: Google
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Google_Search.png
     type: select
@@ -333,12 +336,16 @@ proxy-groups:
       - 日本节点
       - 香港节点
       - 自动选择
+      - 美国自建
   - name: Claude
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Bot.png
     type: select
     proxies:
-      - REJECT
       - 美国自建
+      - 高分美国节点
+      - 美国节点
+      - 新加坡节点
+      - 日本节点
   - name: OpenAI
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Bot.png
     type: select
@@ -357,6 +364,7 @@ proxy-groups:
       - 香港节点
       - 日本节点
       - 国内流量
+      - 美国自建
   - name: 游戏平台
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Game.png
     type: select
@@ -368,6 +376,7 @@ proxy-groups:
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Final.png
     type: select
     proxies:
+      - 美国自建
       - 国外流量
       - 国内流量
       - 手动选择
@@ -643,7 +652,7 @@ rules:
   # Maven Central 可在开发依赖组中手动切换出口。
   - "DOMAIN,repo.maven.apache.org,开发依赖"
   - "DOMAIN,repo1.maven.org,开发依赖"
-  # Claude 默认拒绝。确认出口后再手动选择美国自建。
+  # Claude 默认美国自建，优先于通用代理规则。
   - "RULE-SET,Claude,Claude"
   - "DOMAIN-SUFFIX,claude.com,Claude"
   # Quest / Meta 登录及共享 CDN 优先于通用代理和游戏规则。
