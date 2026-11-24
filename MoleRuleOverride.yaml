@@ -122,22 +122,6 @@ cfw-bypass:
   - <local>
 
 proxy-groups:
-  - name: 节点选择
-    icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Proxy.png
-    type: select
-    proxies:
-      - 自动选择
-      - 手动选择
-      - 经济节点
-      - 国外流量
-      - 国内流量
-      - 日本节点
-      - 新加坡节点
-      - 香港节点
-      - 美国节点
-      - 高分美国节点
-      - 默认自建
-      - DIRECT
   - name: 手动选择
     icon: https://testingcf.jsdelivr.net/gh/shindgewongxj/WHATSINStash@master/icon/select.png
     include-all: true
@@ -147,6 +131,7 @@ proxy-groups:
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Auto.png
     include-all: true
     exclude-filter: '(?i)电信|联通|移动|自建|朝鲜|\[premium_node\]'
+    hidden: true
     type: url-test
     url: http://www.gstatic.com/generate_204
     interval: 300
@@ -156,6 +141,7 @@ proxy-groups:
     include-all: true
     exclude-filter: '\[premium_node\]'
     filter: '\[cheap_node\]$'
+    hidden: true
     type: url-test
     url: http://www.gstatic.com/generate_204
     interval: 300
@@ -184,6 +170,7 @@ proxy-groups:
     include-all: true
     exclude-filter: '\[premium_node\]'
     filter: (?i)(?=.*(日本|东京|大阪|泉日|埼玉|川日|沪日|深日|JP|Japan))(?!.*自建).*
+    hidden: true
     type: url-test
     url: http://www.gstatic.com/generate_204
     interval: 300
@@ -193,6 +180,7 @@ proxy-groups:
     include-all: true
     exclude-filter: '\[premium_node\]'
     filter: (?i)(?=.*(新加坡|狮城|獅城|SG|Singapore))(?!.*自建).*
+    hidden: true
     type: url-test
     url: http://www.gstatic.com/generate_204
     interval: 300
@@ -202,6 +190,7 @@ proxy-groups:
     include-all: true
     exclude-filter: '\[premium_node\]'
     filter: (?i)(?=.*(港|香港|HK|Hong Kong|HongKong|hongkong))(?!.*自建).*
+    hidden: true
     type: url-test
     url: https://www.moles.top/generate_204
     interval: 300
@@ -219,6 +208,7 @@ proxy-groups:
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/United_States.png
     include-all: true
     filter: '(?i)(美国|美國|🇺🇸|\bUS(?:A)?\b|United States).*\[high_score_node\]'
+    hidden: true
     type: url-test
     url: http://www.gstatic.com/generate_204
     interval: 300
@@ -242,6 +232,7 @@ proxy-groups:
     filter: (?i)自建
     type: select
   - name: EH
+    hidden: true
     type: select
     proxies:
       - 默认自建
@@ -249,6 +240,7 @@ proxy-groups:
       - 美国节点
       - 高分美国节点
   - name: Gofile & MEGA
+    hidden: true
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Download.png
     type: select
     proxies:
@@ -280,6 +272,7 @@ proxy-groups:
       - 国外流量
       - 美国自建
   - name: Cursor
+    hidden: true
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Bot.png
     type: select
     proxies:
@@ -290,6 +283,7 @@ proxy-groups:
       - 高分美国节点
       - 国外流量
   - name: Meta Quest
+    hidden: true
     type: select
     proxies:
       - 日本节点
@@ -300,12 +294,14 @@ proxy-groups:
       - 默认自建
       - 国外流量
   - name: Apple
+    hidden: true
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Apple.png
     type: select
     proxies:
       - 国外流量
       - 国内流量
   - name: 开发依赖
+    hidden: true
     type: select
     proxies:
       - DIRECT
@@ -318,6 +314,7 @@ proxy-groups:
       - 手动选择
       - 国外流量
   - name: Jetbrains
+    hidden: true
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Jetbrains.png
     type: select
     proxies:
@@ -327,10 +324,24 @@ proxy-groups:
       - 日本节点
       - 国外流量
       - 美国自建
+  - name: Google 美国
+    icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Google_Search.png
+    type: url-test
+    include-all: true
+    exclude-filter: '\[premium_node\]|自建'
+    filter: (?i)(?=.*(美国|美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States))(?!.*自建).*
+    url: https://www.google.com/generate_204
+    interval: 120
+    timeout: 5000
+    max-failed-times: 3
+    expected-status: 204
+    tolerance: 50
+    hidden: true
   - name: Google
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Google_Search.png
     type: select
     proxies:
+      - Google 美国
       - 美国节点
       - 高分美国节点
       - 日本节点
@@ -356,6 +367,7 @@ proxy-groups:
       - 日本节点
       - 国内流量
   - name: Microsoft
+    hidden: true
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Microsoft.png
     type: select
     proxies:
@@ -366,6 +378,7 @@ proxy-groups:
       - 国内流量
       - 美国自建
   - name: 游戏平台
+    hidden: true
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Game.png
     type: select
     proxies:
@@ -386,7 +399,6 @@ proxy-groups:
     exclude-filter: '\[premium_node\]'
     type: select
     proxies:
-      - 节点选择
       - 自动选择
       - 手动选择
       - 经济节点
