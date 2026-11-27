@@ -378,7 +378,6 @@ proxy-groups:
       - 国内流量
       - 美国自建
   - name: 游戏平台
-    hidden: true
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Game.png
     type: select
     proxies:
